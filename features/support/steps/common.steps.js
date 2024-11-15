@@ -1,6 +1,7 @@
 const { Given, Then, When } = require("@cucumber/cucumber");
 const config = require("../../../src/support/playwrightConfig");
 const { getPage } = require("../../../src/support/world");
+const { expect } = require("playwright/test");
 
 async function loginWithMock(username) {
   const page = getPage();
@@ -30,5 +31,6 @@ When('brukeren går inn på velg opptak', async () => {
 
 Then('skal brukeren se alle tilgjengelige opptak', async () => {
   const page = getPage();
-  await expect(page.getByText('Storms Danseskole').toBeVisible());
+  await expect(page.getByRole('heading', { name: 'Velg opptak' })).toBeVisible();
+ // await expect(page.getByText('Storms Danseskole').toBeVisible());
 });

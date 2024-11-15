@@ -12,6 +12,11 @@ const config = {
   contextOptions,
   timeout: 30000,
   expect: { timeout: 30000 },
+  testDir: 'tests',
+  reporter: [
+    reporter: [['list', { printSteps: true }]],
+  ],
+
   BASE_URL:
     "https://opptak-admissio-soknadsbehandling-staging.paas2.uninett.no/",
 };
