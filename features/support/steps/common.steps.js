@@ -17,3 +17,8 @@ Given(
     await loginWithMock(brukernavn);
   }
 );
+
+Given("Bruker ikke er innlogget og besøker siden", async () => {
+  const page = getPage();
+  await page.goto("https://test-personbrukerflate.sikt.no/nb");
+});
