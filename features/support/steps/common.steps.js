@@ -23,12 +23,12 @@ Given("Bruker ikke er innlogget og besøker siden", async () => {
   await page.goto("https://test-personbrukerflate.sikt.no/nb");
 });
 
-When('brukeren går inn på velg opptak', async ({ page }) => {
-  await page.getByLabel('link', { name: 'Velg opptak' }).click();
-  return 'pending';
+When('brukeren går inn på velg opptak', async () => {
+  const page = getPage();
+  await page.getByText('Velg Opptak').click();
 });
 
-Then('skal brukeren se alle tilgjengelige opptak', async ({ page }) => {
-  await expect(page.getByRole('heading', { name: 'Velg opptak' })).toBeVisible();
-  return 'pending';
+Then('skal brukeren se alle tilgjengelige opptak', async () => {
+  const page = getPage();
+  await expect(page.getByText('Storms Danseskole').toBeVisible());
 });
