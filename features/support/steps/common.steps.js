@@ -22,3 +22,13 @@ Given("Bruker ikke er innlogget og besøker siden", async () => {
   const page = getPage();
   await page.goto("https://test-personbrukerflate.sikt.no/nb");
 });
+
+When('brukeren går inn på velg opptak', async ({ page }) => {
+  await page.getByLabel('link', { name: 'Velg opptak' }).click();
+  return 'pending';
+});
+
+Then('skal brukeren se alle tilgjengelige opptak', async ({ page }) => {
+  await expect(page.getByRole('heading', { name: 'Velg opptak' })).toBeVisible();
+  return 'pending';
+});
